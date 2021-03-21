@@ -1,57 +1,199 @@
-/*my-socnet-style.css */
-/* Own stylesheet for SocNet */
-#container {
-  font-family: Helvetica, Geneva, Arial, sans-serif;
-  padding-left: 20px;
-  background-color: #FFFFFF; /* white */
-  font-color: #2A2929; /* dark grey */
-  margin: 10px;
+/*my-style.css */
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	background-color: #FFFFFF; /* white */
+	color:#2A2929;      /* dark grey */
+	font-size: 110%;
+	margin: 50px;
+	text-align: left;
+	padding-left: 20px;
 }
+
 a:link{
   font-size: 120%;
   text-decoration: none;
  }
+
 a:hover {
   color:#CD7F32;      /* light bronze */
 }
+
+/* Style the header */
+.header {
+	background-color: #F1F1F1;
+	padding: 10px;
+	text-align: center;
+}
+
+/* Style the footer */
+.footer {
+	background-color: #F1F1F1;
+	padding: 10px;
+	text-align: left;
+}
+
+/* Style the top navigation bar */
+.topnav {
+	overflow: hidden;
+	background-color: #BBBBBB;
+}
+
+/* Style the topnav links */
+.topnav a {
+	float: left;
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	padding: 10px 15px;
+	text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
 h1 {
 	color:#D69544;      /* bronze */
 	font-size: 200%;
 	margin: 20px;
 	text-align: center;
 }
+
+button {
+	background-color: #eee;
+	color:#2A2929;      /* dark grey */
+	padding: 5px 15px;
+	text-align: center;
+	display: inline-block;
+	font-size: 105%;
+	margin: 4px 2px;
+	width: 12%;
+}
+
 img {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	height: 50%;
-	width: 50%;
+	height: 40%;
+	width: 40%;
 	vertical-align:middle;
 }
-form {
-  border: 2px solid #D69544;      /* bronze */
-  border-radius: 10px;
-  overflow: hidden;
-  font-size: 120%;
-  margin: 5px;
+
+img.mvrc {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	width: auto;
+	vertical-align:middle;
 }
+
+table.dices {
+	text-align: center;
+	border: 1px solid black;
+	width: 90%;
+	padding-left: 2px;
+}
+
+th.dices {
+	text-align: center;
+	padding: 10px 1px;
+	border: 1px solid black;
+	width: 10%;
+}
+
+td.dices {
+	text-align: center;
+	padding: 10px 1px;
+	border: 1px solid black;
+	width: 10%;
+}
+
+select {
+	font-size: 105%;
+	padding: 5px 5px 5px 5px;
+	text-align:left; 
+}
+
+table.scores {
+	text-align: left;
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 30%
+}
+
+th.scores1 {
+	text-align: center;
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 20%
+}
+
+th.scores2 {
+	text-align: center;
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 10%
+}
+
+td.scores1 {
+	text-align: left;
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 40%
+}
+
+td.scores2 {
+	text-align: right;
+	padding: 5px 5px 5px 5px;
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 10%
+}
+
 label {
-  font-size: 100%;
-  padding: 5px;
-  text-align: left;
-  margin: 5px;
+	font-size: 105%;
+	padding: 5px 5px 5px 5px;
+	text-align:left; 
 }
-.inputs {
-  font-size: 100%;
-  border-radius: 5px;
-  padding: 5px;
-  text-align: left;
-  margin: 5px;
+
+input {
+	font-size: 105%;
+	padding: 2px;
+	text-align:right; 
 }
-input[type="reset"], input[type="submit"] { 
-    color:#343434; 
-    font: bold 100% 'trebuchet ms',helvetica,sans-serif; 
-    background-color:#F0F0F0; 
-    border:1px solid; 
-    border-color: black; 
-} 
+
+ul {
+	list-style-type:square;
+}
+
+li {
+	padding-bottom: 10px;
+}
+.modal-content {
+	background-color:aqua;
+	width:900px;
+	padding: 10px 20px;
+	margin: 20% auto;
+	position: relative;
+}
+
+.modal {
+	background-color: rgba(0,0,0,.8);
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	opacity:0;
+	pointer-events:none;
+	transition: all 1s;
+}
+
+#myModal:target {
+	opacity:1;
+	pointer-events:auto;
+}

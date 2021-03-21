@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<!--
+	Author: Maria Rodriguez
+	Class:   Web & Distributed Programming 
+	Description: Maria's sample Dice Roller application.
+-->
+	<head>
+		<meta charset="UTF-8">
+		<title>Yahtzee Game</title>
+		<link rel="stylesheet" href="css/my-style.css">
+		<script src="js/potpourri.js"></script>
+	</head>
+	<body onload="Initialize()">
+		<div class="header">
+			<h1>Yahtzee Game</h1>
+		</div>
+		<div class="topnav">
+			<a href = "index.html">Home</a>
+		</div>
+		<div>
+			<dialog>
+				<p>Instructions for this game:</p>
+				<p>The object of the game is to get the highest score by rolling five dices. 
+				Each player will roll the dice three times to try to get one of thirteen possible combinations.</p>
+				<p>This application implements a simplified game with only onw player.</p>
+				<p>5 dices
+				<p>A score card</p>
+				<p>Starting and developing the game:</p>
+				<p>The player takes a score card.</p>
+			</dialog>
+		</div>
+
+		<a href="#myModal">Instructions</a>
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<a href="#">X</a>
+				<h2>Instructions</h2>
+				<p>Instructions for this game:</p>
+				<p>The object of the game is to get the highest score by rolling five dices. 
+				Each player will roll the dice three times to try to get one of thirteen possible combinations.</p>
+				<p>This application implements a simplified game with only onw player.</p>
+				<p>5 dices
+				<p>A score card</p>
+				<p>Starting and developing the game:</p>
+				<p>The player takes a score card.</p>
+				He can roll all five dices up to three times. 
+				At this point you can write down your score or put aside the dice you want, 
+				which may be different from the ones you chose for the first time. 
+				If you wish, you can roll the dice for the third time. 
+				After the third shot you must decide which score you will score in any of the boxes. 
+				If you have no available moves you must score a zero.
+
+				End of the game
+				The game ends when the player have filled the thirteen squares with some score, 
+				which can be zero. At this moment the points are added. 
+				If you get more than 63 points in the Top Section you add 35 bonus points. 
+				You must remember to add up all the bonus points for additional Yahtzee in the Lower Section.
+				The player who gets the highest score by adding the points of the Upper Section 
+				and the Lower Section wins the game. 
+
+				Combinations and scoring
+				The combinations are divided into two sections: Upper and Lower.
+
+				In the Upper Section you will record scores for combinations of a single number 
+				of points on the die. You must try to get as many equal dice so that you get a higher score.
+				The score that you will write down will be the sum of the points of the one you are looking for.
+				For example, if you get three dice out of five, you are going to multiply 
+				three by five which equals fifteen and that is your score. 
+				If the sum of your points in this section is greater than 63, you will get a bonus of 35 points.
+
+				In the Lower Section the possible combinations are more varied and include:
+
+				3 of a kind: You must get three of the same dice. You add up the score of all the dice.
+				4 of a kind: You must get four of the same dice. You add up the score of all the dice.
+				Full House: You must get three dice from one class and two from another. 
+				This play is worth 25 points.
+				Small Straight: You must get four consecutive dice. This play is worth 30 points.
+				Large Straight: You must get five consecutive dice. This play is worth 40 points.
+				Yahtzee: You must get five identical dice of the same class. This play is worth 50 points.
+				Chance: Here you can write down any play you get. 
+				The score will be the sum of all the dice. 
+				It is a play that allows you not to miss the shot when you have no other scoring option available.
+				Yahtzee Bonuses: If in the same game you get more than one Yahtzee, 
+				and you had marked 50 in the Yahtzee box, you will get a 100 points bonus.
+				You must place a mark for each additional Yahtzee and take a bonus token. 
+				If you had scored zero on the Yahtzee you don't get the bonus but you can use 
+				the wild card rule (see below).
+				</p>
+			</div>  
+		</div><br><br>
+		<!-- Buttons to:
+		Roll dices
+		Clear checkboxes used to kepp some dices
+		Reset the game: clear all checkboxes, combobox... and roll dices again
+		-->
+		<button type="button" autofocus onclick="HandleDices()">Roll Dice</button>
+		<button type="button" onclick="ClearKepts()">Clear Kepts</button>
+		<button type="reset" onclick="ResetGame()">Reset Game</button><br><br>
+		Six Sided Dice:
+		<!-- Dices values are hidden "input" elements -->
+		<input id="dice1" type="text" value="" size="3" hidden>
+		<input id="dice2" type="text" value="" size="3" hidden>
+		<input id="dice3" type="text" value="" size="3" hidden>
+		<input id="dice4" type="text" value="" size="3" hidden>
+		<input id="dice5" type="text" value="" size="3" hidden>
+		
+		<table class="dices">
+			<tr>
+				<th class="dices"></th>
+				<th class="dices">Dice 1</th>
+				<th class="dices">Dice 2</th>
+				<th class="dices">Dice 3</th>
+				<th class="dices">Dice 4</th>
+				<th class="dices">Dice 5</th>
+			</tr>
+			<tr>
+				<td class="dices">Dice Kept</td>
+				<td class="dices"><input id="diceKept1" type="checkbox" name="diceKept1" value=""></td>
+				<td class="dices"><input id="diceKept2" type="checkbox" name="diceKept2" value=""></td>
+				<td class="dices"><input id="diceKept3" type="checkbox" name="diceKept3" value=""></td>
+				<td class="dices"><input id="diceKept4" type="checkbox" name="diceKept4" value=""></td>
+				<td class="dices"><input id="diceKept5" type="checkbox" name="diceKept5" value=""></td>
+			</tr>
+			<tr>
+				<td class="dices"></td>
+				<td class="dices" id="diceTd1"></td>
+				<td class="dices" id="diceTd2"></td>
+				<td class="dices" id="diceTd3"></td>
+				<td class="dices" id="diceTd4"></td>
+				<td class="dices" id="diceTd5"></td>
+			</tr>
+		</table>
+		<br>
+		<label for="card">Game Card:</label>
+
+		<!-- Combobox to select where to apply points -->
+		<select id="options" name="options" onChange="gameCards()">
+			<option id="opt1" value="1">Aces</option>
+			<option id="opt2" value="2">Twos</option>
+			<option id="opt3" value="3">Threes</option>
+			<option id="opt4" value="4">Fours</option>
+			<option id="opt5" value="5">Fives</option>
+			<option id="opt6" value="6">Sixes</option>
+			<option id="opt7" value="7">Three of a Kind</option>
+			<option id="opt8" value="8">Four of a Kind</option>
+			<option id="opt9" value="9">Full House</option>
+			<option id="opt10" value="10">Small Straight</option>
+			<option id="opt11" value="11">Large Straight</option>
+			<option id="opt12" value="12">Yahtzee</option>
+			<option id="opt13" value="13">Chance</option>
+		</select>
+		<br>
+		<br>
+		<!-- Game card to annotate points -->
+		<table class="scores">
+			<tr>
+				<th class="scores1">Categories</th>
+				<th class="scores2">Scores</th>
+			</tr>
+			<tr>
+				<td class="scores1">Aces</td>
+				<td class="scores2"><input id="scr1" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Twos</td>
+				<td class="scores2"><input id="scr2" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Threes</td>
+				<td class="scores2"><input id="scr3" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Fours</td>
+				<td class="scores2"><input id="scr4" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Fives</td>
+				<td class="scores2"><input id="scr5" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Sixes</td>
+				<td class="scores2"><input id="scr6" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Three of a Kind</td>
+				<td class="scores2"><input id="scr7" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Four of a Kind</td>
+				<td class="scores2"><input id="scr8" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Full House</td>
+				<td class="scores2"><input id="scr9" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Small Straight</td>
+				<td class="scores2"><input id="scr10" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Large Straight</td>
+				<td class="scores2"><input id="scr11" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Yahtzee</td>
+				<td class="scores2"><input id="scr12" type="text" value="" size="3" disabled></td>
+			</tr>
+			<tr>
+				<td class="scores1">Chance</td>
+				<td class="scores2"><input id="scr13" type="text" value="" size="3" disabled></td>
+			</tr>
+		</table>
+		<br>
+		Total Points:<input id="totals" type="text" value="" size="3" disabled>
+
+		<br>
+		<br>
+    </body>
+</html>
