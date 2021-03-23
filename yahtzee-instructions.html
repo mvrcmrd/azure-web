@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<!--
+	Author: Maria Rodriguez
+	Class:   Web & Distributed Programming 
+	Description: Maria's sample Dice Roller application.
+-->
+	<head>
+		<meta charset="UTF-8">
+		<title>Yahtzee Game</title>
+		<link rel="stylesheet" href="css/my-style.css">
+	</head>
+	<body class="mvrc">
+		<div class="topnav">
+			<a href="index.html">Home</a>
+			<a href="yahtzee-game.html">Game</a>
+			<a href="yahtzee-instructions.html">Instructions</a>
+		</div>
+		<div class="header">
+			<h1>Yahtzee Game</h1>
+		</div>
+		<div class="instructions">
+			<h2>Instructions for this game</h2>
+			<p>The object of the game is to get the highest score by rolling five dices. <br>Each player
+			will roll dices three times to try to get one of thirteen possible combinations.</p>
+			<p><b>This application implements a simplified version of the game, with only one player</b></p>
+			Content:<br>
+			<ul>
+				<li>5 dices</li>
+				<li>A score card</li>
+			</ul>
+			<h3>Starting and developing the game:</h3>
+			<p>The player takes a score card.<br>
+			He can roll all five dices up to three times.<br>
+			At this point you can write down your score or put aside the dice you want, 
+			which may be different from the ones you chose for the first time.<br> 
+			If you wish, you can roll the dice for the third time. <br>
+			After the third shot you must decide which score you will score in any of the boxes.<br> 
+			If you have no available moves you must score a zero.</p>
+			<h3>End of the game</h3>
+			<p>The game ends when the player have filled the thirteen squares with some score, 
+			which can be zero. At this moment the points are added.<br> 
+			If you get more than 63 points in the Top Section you add 35 bonus points.<br> 
+			You must remember to add up all the bonus points for additional Yahtzee in the Lower Section.<br>
+			The player who gets the highest score by adding the points of the Upper Section 
+			and the Lower Section wins the game. </p>
+
+			<h3>Combinations and scoring</h3>
+			<p>The combinations are divided into two sections: Upper and Lower.<br>
+			In the Upper Section you will record scores for combinations of a single number 
+			of points on the die. You must try to get as many equal dice so that you get a higher score.<br>
+			The score that you will write down will be the sum 
+			of the points of the one you are looking for.<br>
+			For example, if you get three dice out of five, you are going to multiply 
+			three by five which equals fifteen and that is your score. If the sum 
+			of your points in this section is greater than 63, you will get a bonus of 35 points.<br>
+
+			In the Lower Section the possible combinations are more varied and include:<br>
+			3 of a kind: You must get three of the same dice. You add up the score of all the dice.<br>
+			4 of a kind: You must get four of the same dice. You add up the score of all the dice.<br>
+			Full House: You must get three dice from one class and two from another.
+			This play is worth 25 points. <br>
+			Small Straight: You must get four consecutive dice. This play is worth 30 points.<br>
+			Large Straight: You must get five consecutive dice. This play is worth 40 points.<br>
+			Yahtzee: You must get five identical dice of the same class. This play is worth 50 points.<br>
+			Chance: Here you can write down any play you get. <br>
+			The score will be the sum of all the dice. It is a play  
+			that allows you not to miss the shot when you have no other scoring option available.<br>
+			Yahtzee Bonuses: If in the same game you get more than one Yahtzee, 
+			and you had marked 50 in the Yahtzee box, you will get a 100 points bonus.<br>
+			You must place a mark for each additional Yahtzee and take a bonus token. <br>
+			If you had scored zero on the Yahtzee you don't get the bonus but you can use 
+			the wild card rule (see below).
+			</p><br>
+			<p>Additional information at <a href="https://en.wikipedia.org/wiki/Yahtzee">Yahtzee</a></p>
+		</div>  
+
+		<br>
+		<br>
+		<div class="footer">
+			<a href ="index.html">Home</a>
+			Webmaster: <a href="mailto:mariavictoriavrod@lewisu.edu">mariavictoriavrod@lewisu.edu</a>
+		</div>
+	</body>
+</html>

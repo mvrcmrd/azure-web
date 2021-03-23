@@ -9,92 +9,23 @@
 		<meta charset="UTF-8">
 		<title>Yahtzee Game</title>
 		<link rel="stylesheet" href="css/my-style.css">
-		<script src="js/potpourri.js"></script>
+		<script src="js/js_functions.js"></script>
 	</head>
-	<body onload="Initialize()">
+	<body class="mvrc" onload="Initialize()">
+		<div class="topnav">
+			<a href="index.html">Home</a>
+			<a href="yahtzee-game.html">Game</a>
+			<a href="yahtzee-instructions.html">Instructions</a>
+		</div>
 		<div class="header">
 			<h1>Yahtzee Game</h1>
-		</div>
-		<div class="topnav">
-			<a href = "index.html">Home</a>
-		</div>
-		<div>
-			<dialog>
-				<p>Instructions for this game:</p>
-				<p>The object of the game is to get the highest score by rolling five dices. 
-				Each player will roll the dice three times to try to get one of thirteen possible combinations.</p>
-				<p>This application implements a simplified game with only onw player.</p>
-				<p>5 dices
-				<p>A score card</p>
-				<p>Starting and developing the game:</p>
-				<p>The player takes a score card.</p>
-			</dialog>
-		</div>
-
-		<a href="#myModal">Instructions</a>
-		<div id="myModal" class="modal">
-			<div class="modal-content">
-				<a href="#">X</a>
-				<h2>Instructions</h2>
-				<p>Instructions for this game:</p>
-				<p>The object of the game is to get the highest score by rolling five dices. 
-				Each player will roll the dice three times to try to get one of thirteen possible combinations.</p>
-				<p>This application implements a simplified game with only onw player.</p>
-				<p>5 dices
-				<p>A score card</p>
-				<p>Starting and developing the game:</p>
-				<p>The player takes a score card.</p>
-				He can roll all five dices up to three times. 
-				At this point you can write down your score or put aside the dice you want, 
-				which may be different from the ones you chose for the first time. 
-				If you wish, you can roll the dice for the third time. 
-				After the third shot you must decide which score you will score in any of the boxes. 
-				If you have no available moves you must score a zero.
-
-				End of the game
-				The game ends when the player have filled the thirteen squares with some score, 
-				which can be zero. At this moment the points are added. 
-				If you get more than 63 points in the Top Section you add 35 bonus points. 
-				You must remember to add up all the bonus points for additional Yahtzee in the Lower Section.
-				The player who gets the highest score by adding the points of the Upper Section 
-				and the Lower Section wins the game. 
-
-				Combinations and scoring
-				The combinations are divided into two sections: Upper and Lower.
-
-				In the Upper Section you will record scores for combinations of a single number 
-				of points on the die. You must try to get as many equal dice so that you get a higher score.
-				The score that you will write down will be the sum of the points of the one you are looking for.
-				For example, if you get three dice out of five, you are going to multiply 
-				three by five which equals fifteen and that is your score. 
-				If the sum of your points in this section is greater than 63, you will get a bonus of 35 points.
-
-				In the Lower Section the possible combinations are more varied and include:
-
-				3 of a kind: You must get three of the same dice. You add up the score of all the dice.
-				4 of a kind: You must get four of the same dice. You add up the score of all the dice.
-				Full House: You must get three dice from one class and two from another. 
-				This play is worth 25 points.
-				Small Straight: You must get four consecutive dice. This play is worth 30 points.
-				Large Straight: You must get five consecutive dice. This play is worth 40 points.
-				Yahtzee: You must get five identical dice of the same class. This play is worth 50 points.
-				Chance: Here you can write down any play you get. 
-				The score will be the sum of all the dice. 
-				It is a play that allows you not to miss the shot when you have no other scoring option available.
-				Yahtzee Bonuses: If in the same game you get more than one Yahtzee, 
-				and you had marked 50 in the Yahtzee box, you will get a 100 points bonus.
-				You must place a mark for each additional Yahtzee and take a bonus token. 
-				If you had scored zero on the Yahtzee you don't get the bonus but you can use 
-				the wild card rule (see below).
-				</p>
-			</div>  
 		</div><br><br>
 		<!-- Buttons to:
 		Roll dices
 		Clear checkboxes used to kepp some dices
 		Reset the game: clear all checkboxes, combobox... and roll dices again
 		-->
-		<button type="button" autofocus onclick="HandleDices()">Roll Dice</button>
+		<button type="button" id="roll" autofocus onclick="HandleDices()">Roll Dice</button>
 		<button type="button" onclick="ClearKepts()">Clear Kepts</button>
 		<button type="reset" onclick="ResetGame()">Reset Game</button><br><br>
 		Six Sided Dice:
@@ -132,7 +63,7 @@
 			</tr>
 		</table>
 		<br>
-		<label for="card">Game Card:</label>
+		<label>Game Card:</label>
 
 		<!-- Combobox to select where to apply points -->
 		<select id="options" name="options" onChange="gameCards()">
@@ -212,9 +143,14 @@
 			</tr>
 		</table>
 		<br>
-		Total Points:<input id="totals" type="text" value="" size="3" disabled>
+		Upper Section Bonus:<input id="upper" class="tot_scores" type="text" value="" size="3" disabled>
+		<b>Total Points:</b><input id="totals" class="tot_scores" type="text" value="" size="3" disabled>
 
 		<br>
 		<br>
-    </body>
+		<div class="footer">
+			<a href ="index.html">Home</a>
+			Webmaster: <a href="mailto:mariavictoriavrod@lewisu.edu">mariavictoriavrod@lewisu.edu</a>
+		</div>
+	</body>
 </html>
