@@ -214,7 +214,6 @@ function gameCards() {
 					two = true;
 				} else if (arrayInt[i] == 3){
 					three = true;
-					i++;
 				}
 				if (two && three) {
 					dicesOK = 1;
